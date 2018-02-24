@@ -65,5 +65,26 @@ public class GameController : NetworkBehaviour {
 
 	}
 
+    public int RegisterPlayer(PlayerComponent player)
+    {
+        if (player1 == null)
+        {
+            player1 = player;
+            return 1;
+        } else if (player2 == null)
+        {
+            player2 = player;
+            return 2;
+        } else
+        {
+            throw new UnityException("too many players");
+        }
+    }
+
+    public int GetLayer(int playerNumber)
+    {
+        return playerNumber + 7;
+    }
+
 
 }
