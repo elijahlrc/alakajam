@@ -9,8 +9,7 @@ public class GameController : NetworkBehaviour {
 	public static GameController instance;
 	public PlayerComponent player1;
 	public PlayerComponent player2;
-	public Text scoreText;
-	public Text restartText;
+
 	public Text gameOverText;
 	public bool gameOver;
 	public GameObject gameOverPanel;
@@ -24,8 +23,6 @@ public class GameController : NetworkBehaviour {
 		}
 		gameOver = false;
 		gameOverText.text = "";
-		restartText.text = "";
-		scoreText.text = "";
 		gameOverPanel.SetActive(false);
 			
 	}
