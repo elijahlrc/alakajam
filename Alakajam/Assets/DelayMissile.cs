@@ -13,12 +13,15 @@ public class DelayMissile : MonoBehaviour {
     private float accelTimeLeft;
 
     private Rigidbody2D rb;
+    public GameObject explosionEffect;
+    private ParticleSystem thrusterEffect;
 
 	// Use this for initialization
 	void Start () {
         timeTillLaunch = LAUNCH_DELAY;
         accelTimeLeft = ACCEL_DURATION;
         rb = GetComponent<Rigidbody2D>();
+        thrusterEffect = GetComponent<ParticleSystem>();
 	}
 	
 	// Update is called once per frame
@@ -28,18 +31,27 @@ public class DelayMissile : MonoBehaviour {
             timeTillLaunch -= Time.fixedDeltaTime;
         } else if (accelTimeLeft > 0)
         {
+            if (!thrusterEffect.isEmitting)
+            {
+                thrusterEffect.Play();
+            }
             accelTimeLeft -= Time.fixedDeltaTime;
             rb.velocity += ((Vector2) transform.up) * (ACCELERATION * Time.fixedDeltaTime);
+        } else if (thrusterEffect.isEmitting)
+        {
+            thrusterEffect.Stop();
         }
 
         if (OutOfBounds())
         {
-            SelfDestruct();
+            Destroy(this.gameObject);
         }
 	}
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        thrusterEffect.Stop();
+        GameObject expl = Instantiate(explosionEffect, transform.position, transform.rotation);
         Destroy(this.gameObject);
 
     }
@@ -47,10 +59,5 @@ public class DelayMissile : MonoBehaviour {
     private bool OutOfBounds()
     {
         return false;
-    }
-
-    private void SelfDestruct()
-    {
-        Destroy(this.gameObject);
     }
 }
