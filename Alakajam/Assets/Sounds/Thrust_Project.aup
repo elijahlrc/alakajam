@@ -1,0 +1,137 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="Thrust_Project_data" version="1.3.0" audacityversion="2.1.2" sel0="0.0000000000" sel1="29.8251666667" vpos="288" h="0.0000000000" zoom="27.2253560174" rate="48000.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags/>
+	<wavetrack name="237974__zovex__large-rocket-engine" channel="0" linked="1" mute="1" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="530241">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000488.au" len="262144" min="-1.467317" max="1.519747" rms="0.41288"/>
+				</waveblock>
+				<waveblock start="262144">
+					<simpleblockfile filename="e00005c0.au" len="262144" min="-1.127318" max="1.495342" rms="0.228893"/>
+				</waveblock>
+				<waveblock start="524288">
+					<simpleblockfile filename="e00003f5.au" len="5953" min="-0.000005" max="0.000007" rms="0.0"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="237974__zovex__large-rocket-engine" channel="1" linked="0" mute="1" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="530241">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000a49.au" len="262144" min="-1.769212" max="1.546183" rms="0.419701"/>
+				</waveblock>
+				<waveblock start="262144">
+					<simpleblockfile filename="e00000dd.au" len="262144" min="-1.482258" max="1.263347" rms="0.235111"/>
+				</waveblock>
+				<waveblock start="524288">
+					<simpleblockfile filename="e0000e80.au" len="5953" min="-0.000006" max="0.000011" rms="0.000001"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="237974__zovex__large-rocket-engine" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="48000" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="1431608">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000323.au" len="262144" min="-0.191067" max="0.181673" rms="0.051399"/>
+				</waveblock>
+				<waveblock start="262144">
+					<simpleblockfile filename="e000022d.au" len="262144" min="-0.183068" max="0.219578" rms="0.052791"/>
+				</waveblock>
+				<waveblock start="524288">
+					<simpleblockfile filename="e0000582.au" len="262144" min="-0.141558" max="0.162685" rms="0.045461"/>
+				</waveblock>
+				<waveblock start="786432">
+					<simpleblockfile filename="e0000bbd.au" len="262144" min="-0.164292" max="0.167266" rms="0.042602"/>
+				</waveblock>
+				<waveblock start="1048576">
+					<simpleblockfile filename="e0000b97.au" len="262144" min="-0.13371" max="0.144108" rms="0.040007"/>
+				</waveblock>
+				<waveblock start="1310720">
+					<simpleblockfile filename="e00002ae.au" len="120888" min="-0.126651" max="0.16585" rms="0.041609"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="237974__zovex__large-rocket-engine" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="48000" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="1431608">
+				<waveblock start="0">
+					<simpleblockfile filename="e00006a8.au" len="262144" min="-0.183708" max="0.192308" rms="0.052637"/>
+				</waveblock>
+				<waveblock start="262144">
+					<simpleblockfile filename="e0000f76.au" len="262144" min="-0.212441" max="0.234324" rms="0.057498"/>
+				</waveblock>
+				<waveblock start="524288">
+					<simpleblockfile filename="e0000d73.au" len="262144" min="-0.169511" max="0.166225" rms="0.050304"/>
+				</waveblock>
+				<waveblock start="786432">
+					<simpleblockfile filename="e0000e6e.au" len="262144" min="-0.138079" max="0.168451" rms="0.045017"/>
+				</waveblock>
+				<waveblock start="1048576">
+					<simpleblockfile filename="e0000638.au" len="262144" min="-0.150007" max="0.150647" rms="0.043359"/>
+				</waveblock>
+				<waveblock start="1310720">
+					<simpleblockfile filename="e0000403.au" len="120888" min="-0.138836" max="0.184003" rms="0.045287"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="237974__zovex__large-rocket-engine" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="48000" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="1431608">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000321.au" len="262144" min="-0.166303" max="0.201897" rms="0.041681"/>
+				</waveblock>
+				<waveblock start="262144">
+					<simpleblockfile filename="e0000c4c.au" len="262144" min="-0.168295" max="0.167026" rms="0.042642"/>
+				</waveblock>
+				<waveblock start="524288">
+					<simpleblockfile filename="e0000529.au" len="262144" min="-0.148899" max="0.163938" rms="0.041614"/>
+				</waveblock>
+				<waveblock start="786432">
+					<simpleblockfile filename="e000022e.au" len="262144" min="-0.214341" max="0.182707" rms="0.051299"/>
+				</waveblock>
+				<waveblock start="1048576">
+					<simpleblockfile filename="e0000c65.au" len="262144" min="-0.215715" max="0.162661" rms="0.0509"/>
+				</waveblock>
+				<waveblock start="1310720">
+					<simpleblockfile filename="e00008e7.au" len="120888" min="-0.182568" max="0.186782" rms="0.05034"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="237974__zovex__large-rocket-engine" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="48000" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="1431608">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000305.au" len="262144" min="-0.185913" max="0.332064" rms="0.045007"/>
+				</waveblock>
+				<waveblock start="262144">
+					<simpleblockfile filename="e0000a77.au" len="262144" min="-0.167644" max="0.135858" rms="0.04571"/>
+				</waveblock>
+				<waveblock start="524288">
+					<simpleblockfile filename="e0000c84.au" len="262144" min="-0.15021" max="0.156273" rms="0.045197"/>
+				</waveblock>
+				<waveblock start="786432">
+					<simpleblockfile filename="e00007e3.au" len="262144" min="-0.229823" max="0.212866" rms="0.05623"/>
+				</waveblock>
+				<waveblock start="1048576">
+					<simpleblockfile filename="e000092d.au" len="262144" min="-0.22731" max="0.201846" rms="0.055611"/>
+				</waveblock>
+				<waveblock start="1310720">
+					<simpleblockfile filename="e0000b3a.au" len="120888" min="-0.176095" max="0.161172" rms="0.047508"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+</project>
