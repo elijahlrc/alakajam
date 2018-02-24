@@ -18,7 +18,6 @@ public class DelayMissile : MonoBehaviour {
 	void Start () {
         timeTillLaunch = LAUNCH_DELAY;
         accelTimeLeft = ACCEL_DURATION;
-        shouldExist = true;
         rb = GetComponent<Rigidbody2D>();
 	}
 	
@@ -38,6 +37,12 @@ public class DelayMissile : MonoBehaviour {
             SelfDestruct();
         }
 	}
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Destroy(this.gameObject);
+
+    }
 
     private bool OutOfBounds()
     {
