@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(ParticleSystem))]
 public class DelayMissile : MonoBehaviour {
 
     public static float LAUNCH_DELAY = 1f;
@@ -51,7 +52,7 @@ public class DelayMissile : MonoBehaviour {
     private void OnCollisionEnter2D(Collision2D collision)
     {
         thrusterEffect.Stop();
-        GameObject expl = Instantiate(explosionEffect, transform.position, transform.rotation);
+        Instantiate(explosionEffect, transform.position, transform.rotation);
         Destroy(this.gameObject);
 
     }
