@@ -136,6 +136,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3da62abd7db13d7449d721bbfe6e77f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  missilePrefab: {fileID: 1367499386034444, guid: e05ca99fd8572724ab56095931a9c38a,
+    type: 2}
   radarSignaturePFX: {fileID: 1893134672437802, guid: 0b94b9baee9a7c7419990e1b045599a2,
     type: 2}
 --- !u!114 &114865262230830304
