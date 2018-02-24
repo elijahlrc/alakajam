@@ -13,7 +13,6 @@ public class GameController : NetworkBehaviour {
 	public Text restartText;
 	public Text gameOverText;
 	public bool gameOver;
-	public int score;
 	public GameObject gameOverPanel;
 
 	// Use this for initialization
@@ -27,7 +26,6 @@ public class GameController : NetworkBehaviour {
 		gameOverText.text = "";
 		restartText.text = "";
 		scoreText.text = "";
-		score = 0;
 		gameOverPanel.SetActive(false);
 			
 	}
@@ -57,6 +55,7 @@ public class GameController : NetworkBehaviour {
 	{
 		if(this.isLocalPlayer && this.netId==nid){
 			//winning player calls this with their net id thing
+//			player1.score += 1;
 			gameOverText.text = "You won :)";
 		}else{
 			gameOverText.text = "loser :>D";
