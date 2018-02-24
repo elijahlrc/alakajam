@@ -14,7 +14,7 @@ public class PlayerComponent : NetworkBehaviour {
     void Start () {
         MyNetworkID = GetComponent<NetworkIdentity>();
         Rb = GetComponent<Rigidbody2D>();
-	gameController = GameController.getInstance();
+	    gameController = GameController.getInstance();
         if (!isLocalPlayer) {
             GetComponent<SpriteRenderer>().enabled = false;
         }
@@ -55,5 +55,9 @@ public class PlayerComponent : NetworkBehaviour {
     private void FixedUpdate() {
         Rb.velocity += CurrentAcc * Time.fixedDeltaTime;
     }
+
+	private void Die() {
+		gameController.GameOver (MyNetworkID.netId);
+	}
 }
 
