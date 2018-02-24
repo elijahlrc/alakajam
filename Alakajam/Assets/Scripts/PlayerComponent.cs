@@ -8,7 +8,8 @@ public class PlayerComponent : NetworkBehaviour {
     NetworkIdentity MyNetworkID;
     Rigidbody2D Rb;
     GameController gameController;
-    Vector2 CurrentAcc;
+    Vector2 currentAcc;
+    public GameObject radarSignaturePFX;
     bool WasThrusting;
     // Use this for initialization
     void Start () {
@@ -28,12 +29,21 @@ public class PlayerComponent : NetworkBehaviour {
                 Vector2 goalPosInWorldSpace = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             CmdAccelerateInDirection(true, goalPosInWorldSpace);
                 WasThrusting = true;
-            }
-            else {
-                if (WasThrusting){
+            } else {
+                if (WasThrusting) {
                     CmdAccelerateInDirection(false, Vector2.zero);
                 }
                 WasThrusting = false;
+            }
+            if (Input.GetKeyDown("space")) {
+                PlayerComponent P1 = GameController.getInstance().player1;
+                if (P1 != this)
+                {
+                    Instantiate(radarSignaturePFX, P1.transform);
+                } else {
+                    PlayerComponent P2 = GameController.getInstance().player2;
+                    Instantiate(radarSignaturePFX, P2.transform);
+                }
             }
         }
 
@@ -46,14 +56,14 @@ public class PlayerComponent : NetworkBehaviour {
     [Command]
     public void CmdAccelerateInDirection(bool thrusting,  Vector2 goalLoc){
         if (thrusting) {
-            CurrentAcc = (goalLoc - Rb.position);
+            currentAcc = (goalLoc - Rb.position);
         } else {
-            CurrentAcc = Vector2.zero;
+            currentAcc = Vector2.zero;
         }
     }
 
     private void FixedUpdate() {
-        Rb.velocity += CurrentAcc * Time.fixedDeltaTime;
+        Rb.velocity += currentAcc * Time.fixedDeltaTime;
     }
 }
 
