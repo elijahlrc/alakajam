@@ -13,12 +13,15 @@ public class PlayerComponent : NetworkBehaviour {
     void Start () {
         MyNetworkID = GetComponent<NetworkIdentity>();
         Rb = GetComponent<Rigidbody2D>();
+        if (!isLocalPlayer) {
+            GetComponent<SpriteRenderer>().enabled = false;
+        }
     }
 
     // Update is called once per frame
     void Update () {
         if(isLocalPlayer) {
-            bool NowThrusting = Input.GetKey("mouse 0");
+            bool NowThrusting = Input.GetKey("mouse 1");
             if (NowThrusting) {
                 Vector2 goalPosInWorldSpace = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 CmdAccelerateInDirection(true, goalPosInWorldSpace);
