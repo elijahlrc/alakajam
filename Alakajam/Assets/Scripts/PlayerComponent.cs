@@ -11,7 +11,7 @@ public class PlayerComponent : RadarDetectible
     NetworkIdentity MyNetworkID;
     Rigidbody2D Rb;
     GameController gameController;
-
+    public GameObject missilePrefab;
     [SyncVar]
     Vector2 currentAcc;
 
@@ -20,7 +20,6 @@ public class PlayerComponent : RadarDetectible
     public float RadarPingCooldown = 5;
     private float LastRadarpingTime;
     
-
     bool WasThrusting;
     // Use this for initialization
     void Start () {
@@ -47,6 +46,15 @@ public class PlayerComponent : RadarDetectible
                 }
                 WasThrusting = false;
             }
+
+            bool shouldDropMissile = Input.GetKeyDown("mouse 0");
+            if (shouldDropMissile)
+            {
+                Vector2 goalPosInWorldSpace = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                CmdDropMissile(goalPosInWorldSpace);
+            }
+
+
             if (Input.GetKeyDown("space") && LastRadarpingTime < Time.time - RadarPingCooldown) {
                 foreach(RadarDetectible Obj in RadarDetectible.DetectableObjects)
                 {
@@ -57,7 +65,9 @@ public class PlayerComponent : RadarDetectible
         }
 
         if (MyNetworkID.isServer) {
+            print("IsServer true");
         }
+
     }
 
     public override void PingMe(Vector2 PingCenter){
@@ -67,6 +77,7 @@ public class PlayerComponent : RadarDetectible
         }
     }
 
+
     [Command]
     public void CmdAccelerateInDirection(bool thrusting,  Vector2 goalLoc){
         if (thrusting) {
@@ -74,6 +85,14 @@ public class PlayerComponent : RadarDetectible
         } else {
             currentAcc = Vector2.zero;
         }
+    }
+
+    [Command]
+    public void CmdDropMissile(Vector2 goalLoc)
+    {
+        Vector2 direction = goalLoc - Rb.position;
+        direction.Normalize();
+        Instantiate(missilePrefab, transform.position, Quaternion.LookRotation(direction));
     }
 
     private void FixedUpdate() {
