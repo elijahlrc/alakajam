@@ -21,6 +21,7 @@ public class PlayerComponent : RadarDetectible
     private float LastRadarpingTime;
     
     bool WasThrusting;
+    int playerNumber;
     // Use this for initialization
     void Start () {
         //base.Start();
@@ -30,6 +31,8 @@ public class PlayerComponent : RadarDetectible
         if (!isLocalPlayer) {
             GetComponent<SpriteRenderer>().enabled = false;
         }
+        playerNumber = gameController.RegisterPlayer(this);
+        gameObject.layer = gameController.GetLayer(playerNumber);
     }
 
     // Update is called once per frame
@@ -89,7 +92,9 @@ public class PlayerComponent : RadarDetectible
     {
         Vector2 direction = goalLoc - Rb.position;
         direction.Normalize();
-        Instantiate(missilePrefab, transform.position, Quaternion.LookRotation(direction));
+        GameObject missile = Instantiate(missilePrefab, transform.position, Quaternion.LookRotation(Vector3.forward, direction));
+        missile.layer = gameObject.layer;
+        NetworkServer.Spawn(missile);
     }
 
     private void FixedUpdate() {
