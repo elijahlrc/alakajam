@@ -38,6 +38,12 @@ public class DelayMissile : MonoBehaviour {
         }
 	}
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Destroy(this.gameObject);
+
+    }
+
     private bool OutOfBounds()
     {
         return false;
