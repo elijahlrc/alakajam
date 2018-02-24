@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine.Networking;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using System;
 
-public class PlayerComponent : NetworkBehaviour {
+public class PlayerComponent : RadarDetectible
+{
 
     NetworkIdentity MyNetworkID;
     Rigidbody2D Rb;
@@ -13,6 +16,7 @@ public class PlayerComponent : NetworkBehaviour {
     bool WasThrusting;
     // Use this for initialization
     void Start () {
+        //base.Start();
         MyNetworkID = GetComponent<NetworkIdentity>();
         Rb = GetComponent<Rigidbody2D>();
 	    gameController = GameController.getInstance();
@@ -36,13 +40,9 @@ public class PlayerComponent : NetworkBehaviour {
                 WasThrusting = false;
             }
             if (Input.GetKeyDown("space")) {
-                PlayerComponent P1 = GameController.getInstance().player1;
-                if (P1 != this)
+                foreach(RadarDetectible Obj in RadarDetectible.DetectableObjects)
                 {
-                    Instantiate(radarSignaturePFX, P1.transform);
-                } else {
-                    PlayerComponent P2 = GameController.getInstance().player2;
-                    Instantiate(radarSignaturePFX, P2.transform);
+                    Obj.PingMe(this.transform.position);
                 }
             }
         }
@@ -53,10 +53,18 @@ public class PlayerComponent : NetworkBehaviour {
 
     }
 
+    public override void PingMe(Vector2 PingCenter){
+        //maybe some kind of "is visible" check?
+        if (!isLocalPlayer) {
+            Instantiate(radarSignaturePFX, transform.position, transform.rotation);
+        }
+    }
+
+
     [Command]
     public void CmdAccelerateInDirection(bool thrusting,  Vector2 goalLoc){
         if (thrusting) {
-            currentAcc = (goalLoc - Rb.position);
+            currentAcc = (goalLoc - Rb.position).normalized;
         } else {
             currentAcc = Vector2.zero;
         }
