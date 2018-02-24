@@ -7,24 +7,33 @@ public class PlayerComponent : NetworkBehaviour {
 
     NetworkIdentity MyNetworkID;
     Rigidbody2D Rb;
-	GameController gameController;
-
+    GameController gameController;
+    Vector2 CurrentAcc;
+    bool WasThrusting;
     // Use this for initialization
     void Start () {
         MyNetworkID = GetComponent<NetworkIdentity>();
         Rb = GetComponent<Rigidbody2D>();
-		gameController = GameController.getInstance();
+	gameController = GameController.getInstance();
+        if (!isLocalPlayer) {
+            GetComponent<SpriteRenderer>().enabled = false;
+        }
     }
 
     // Update is called once per frame
     void Update () {
         if(isLocalPlayer) {
-            bool thrusting = Input.GetKey("mouse 0");
-            if (thrusting) {
+            bool NowThrusting = Input.GetKey("mouse 1");
+            if (NowThrusting) {
                 Vector2 goalPosInWorldSpace = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                CmdAccelerateInDirection(goalPosInWorldSpace);
-
-
+            CmdAccelerateInDirection(true, goalPosInWorldSpace);
+                WasThrusting = true;
+            }
+            else {
+                if (WasThrusting){
+                    CmdAccelerateInDirection(false, Vector2.zero);
+                }
+                WasThrusting = false;
             }
         }
 
@@ -35,12 +44,16 @@ public class PlayerComponent : NetworkBehaviour {
     }
 
     [Command]
-    public void CmdAccelerateInDirection(Vector2 GoalLoc){
-        Rb.velocity += (GoalLoc - Rb.position);
+    public void CmdAccelerateInDirection(bool thrusting,  Vector2 goalLoc){
+        if (thrusting) {
+            CurrentAcc = (goalLoc - Rb.position);
+        } else {
+            CurrentAcc = Vector2.zero;
+        }
     }
 
-	public void Die() {
-		gameController.GameOver (MyNetworkID.netId);
-	}
+    private void FixedUpdate() {
+        Rb.velocity += CurrentAcc * Time.fixedDeltaTime;
+    }
 }
 
