@@ -9,6 +9,7 @@ public class PlayerComponent : NetworkBehaviour {
     Rigidbody2D Rb;
     GameController gameController;
     Vector2 CurrentAcc;
+    public GameObject missilePrefab;
     bool WasThrusting;
     // Use this for initialization
     void Start () {
@@ -26,7 +27,7 @@ public class PlayerComponent : NetworkBehaviour {
             bool NowThrusting = Input.GetKey("mouse 1");
             if (NowThrusting) {
                 Vector2 goalPosInWorldSpace = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            CmdAccelerateInDirection(true, goalPosInWorldSpace);
+                CmdAccelerateInDirection(true, goalPosInWorldSpace);
                 WasThrusting = true;
             }
             else {
@@ -34,6 +35,13 @@ public class PlayerComponent : NetworkBehaviour {
                     CmdAccelerateInDirection(false, Vector2.zero);
                 }
                 WasThrusting = false;
+            }
+
+            bool shouldDropMissile = Input.GetKeyDown("mouse 0");
+            if (shouldDropMissile)
+            {
+                Vector2 goalPosInWorldSpace = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
             }
         }
 
@@ -50,6 +58,14 @@ public class PlayerComponent : NetworkBehaviour {
         } else {
             CurrentAcc = Vector2.zero;
         }
+    }
+
+    [Command]
+    public void CmdDropMissile(Vector2 goalLoc)
+    {
+        Vector2 direction = goalLoc - Rb.position;
+        direction.Normalize();
+        Instantiate(missilePrefab, transform.position, Quaternion.LookRotation(direction));
     }
 
     private void FixedUpdate() {
