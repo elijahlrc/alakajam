@@ -1,26 +1,40 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Networking;
 using UnityEngine;
 
-public class ClientInput : MonoBehaviour {
+public class PlayerComponent : NetworkBehaviour {
 
-	// Use this for initialization
-	void Start () {
-        
+    NetworkIdentity MyNetworkID;
+    Rigidbody2D Rb;
+
+    // Use this for initialization
+    void Start () {
+        MyNetworkID = GetComponent<NetworkIdentity>();
+        Rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update () {
-        if(Network.isServer)
-        {
+        if(isLocalPlayer) {
             bool thrusting = Input.GetKey("mouse 0");
-            if (thrusting)
-            {
-                Vector2 goalPos = Input.mousePosition;
-                print(goalPos);
+            if (thrusting) {
+                Vector2 goalPosInWorldSpace = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                CmdAccelerateInDirection(goalPosInWorldSpace);
+
+
             }
         }
+
+        if (MyNetworkID.isServer) {
+            print("IsServer true");
+        }
+
     }
 
-
+    [Command]
+    public void CmdAccelerateInDirection(Vector2 GoalLoc){
+        Rb.velocity += (GoalLoc - Rb.position);
+    }
 }
+
