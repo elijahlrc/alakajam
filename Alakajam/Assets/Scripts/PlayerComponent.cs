@@ -2,17 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine.Networking;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using System;
 
-public class PlayerComponent : NetworkBehaviour {
+public class PlayerComponent : RadarDetectible
+{
 
     NetworkIdentity MyNetworkID;
     Rigidbody2D Rb;
     GameController gameController;
-    Vector2 CurrentAcc;
     public GameObject missilePrefab;
+    Vector2 currentAcc;
+    public GameObject radarSignaturePFX;
     bool WasThrusting;
     // Use this for initialization
     void Start () {
+        //base.Start();
         MyNetworkID = GetComponent<NetworkIdentity>();
         Rb = GetComponent<Rigidbody2D>();
 	    gameController = GameController.getInstance();
@@ -29,9 +34,8 @@ public class PlayerComponent : NetworkBehaviour {
                 Vector2 goalPosInWorldSpace = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 CmdAccelerateInDirection(true, goalPosInWorldSpace);
                 WasThrusting = true;
-            }
-            else {
-                if (WasThrusting){
+            } else {
+                if (WasThrusting) {
                     CmdAccelerateInDirection(false, Vector2.zero);
                 }
                 WasThrusting = false;
@@ -41,7 +45,14 @@ public class PlayerComponent : NetworkBehaviour {
             if (shouldDropMissile)
             {
                 Vector2 goalPosInWorldSpace = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                CmdDropMissile(goalPosInWorldSpace);
+            }
 
+            if (Input.GetKeyDown("space")) {
+                foreach(RadarDetectible Obj in RadarDetectible.DetectableObjects)
+                {
+                    Obj.PingMe(this.transform.position);
+                }
             }
         }
 
@@ -51,12 +62,20 @@ public class PlayerComponent : NetworkBehaviour {
 
     }
 
+    public override void PingMe(Vector2 PingCenter){
+        //maybe some kind of "is visible" check?
+        if (!isLocalPlayer) {
+            Instantiate(radarSignaturePFX, transform.position, transform.rotation);
+        }
+    }
+
+
     [Command]
     public void CmdAccelerateInDirection(bool thrusting,  Vector2 goalLoc){
         if (thrusting) {
-            CurrentAcc = (goalLoc - Rb.position);
+            currentAcc = (goalLoc - Rb.position).normalized;
         } else {
-            CurrentAcc = Vector2.zero;
+            currentAcc = Vector2.zero;
         }
     }
 
@@ -69,7 +88,7 @@ public class PlayerComponent : NetworkBehaviour {
     }
 
     private void FixedUpdate() {
-        Rb.velocity += CurrentAcc * Time.fixedDeltaTime;
+        Rb.velocity += currentAcc * Time.fixedDeltaTime;
     }
 
 	private void Die() {

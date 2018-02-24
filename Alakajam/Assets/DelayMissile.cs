@@ -1,14 +1,16 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(ParticleSystem))]
-public class DelayMissile : MonoBehaviour {
+public class DelayMissile : RadarDetectible{
 
     public static float LAUNCH_DELAY = 1f;
     public static float ACCEL_DURATION = 1f;
     public static float ACCELERATION = 1f;
+    public GameObject radarSignaturePFX;
 
     private float timeTillLaunch;
     private float accelTimeLeft;
@@ -17,8 +19,8 @@ public class DelayMissile : MonoBehaviour {
     public GameObject explosionEffect;
     private ParticleSystem thrusterEffect;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         timeTillLaunch = LAUNCH_DELAY;
         accelTimeLeft = ACCEL_DURATION;
         rb = GetComponent<Rigidbody2D>();
@@ -60,5 +62,10 @@ public class DelayMissile : MonoBehaviour {
     private bool OutOfBounds()
     {
         return false;
+    }
+
+    public override void PingMe(Vector2 PingCenter)
+    {
+        Instantiate(radarSignaturePFX, transform.position, Quaternion.identity);
     }
 }
