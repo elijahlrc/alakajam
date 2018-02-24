@@ -11,8 +11,16 @@ public class PlayerComponent : RadarDetectible
     NetworkIdentity MyNetworkID;
     Rigidbody2D Rb;
     GameController gameController;
+
+    [SyncVar]
     Vector2 currentAcc;
+
     public GameObject radarSignaturePFX;
+
+    public float RadarPingCooldown = 5;
+    private float LastRadarpingTime;
+    
+
     bool WasThrusting;
     // Use this for initialization
     void Start () {
@@ -39,18 +47,17 @@ public class PlayerComponent : RadarDetectible
                 }
                 WasThrusting = false;
             }
-            if (Input.GetKeyDown("space")) {
+            if (Input.GetKeyDown("space") && LastRadarpingTime < Time.time - RadarPingCooldown) {
                 foreach(RadarDetectible Obj in RadarDetectible.DetectableObjects)
                 {
                     Obj.PingMe(this.transform.position);
                 }
+                LastRadarpingTime = Time.time;
             }
         }
 
         if (MyNetworkID.isServer) {
-            print("IsServer true");
         }
-
     }
 
     public override void PingMe(Vector2 PingCenter){
@@ -59,7 +66,6 @@ public class PlayerComponent : RadarDetectible
             Instantiate(radarSignaturePFX, transform.position, transform.rotation);
         }
     }
-
 
     [Command]
     public void CmdAccelerateInDirection(bool thrusting,  Vector2 goalLoc){
