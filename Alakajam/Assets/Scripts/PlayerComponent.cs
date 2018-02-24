@@ -7,12 +7,14 @@ public class PlayerComponent : NetworkBehaviour {
 
     NetworkIdentity MyNetworkID;
     Rigidbody2D Rb;
+    GameController gameController;
     Vector2 CurrentAcc;
     bool WasThrusting;
     // Use this for initialization
     void Start () {
         MyNetworkID = GetComponent<NetworkIdentity>();
         Rb = GetComponent<Rigidbody2D>();
+	gameController = GameController.getInstance();
         if (!isLocalPlayer) {
             GetComponent<SpriteRenderer>().enabled = false;
         }
@@ -24,7 +26,7 @@ public class PlayerComponent : NetworkBehaviour {
             bool NowThrusting = Input.GetKey("mouse 1");
             if (NowThrusting) {
                 Vector2 goalPosInWorldSpace = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                CmdAccelerateInDirection(true, goalPosInWorldSpace);
+            CmdAccelerateInDirection(true, goalPosInWorldSpace);
                 WasThrusting = true;
             }
             else {
