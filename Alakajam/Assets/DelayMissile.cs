@@ -18,7 +18,6 @@ public class DelayMissile : MonoBehaviour {
 	void Start () {
         timeTillLaunch = LAUNCH_DELAY;
         accelTimeLeft = ACCEL_DURATION;
-        shouldExist = true;
         rb = GetComponent<Rigidbody2D>();
 	}
 	

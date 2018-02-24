@@ -7,11 +7,13 @@ public class PlayerComponent : NetworkBehaviour {
 
     NetworkIdentity MyNetworkID;
     Rigidbody2D Rb;
+	GameController gameController;
 
     // Use this for initialization
     void Start () {
         MyNetworkID = GetComponent<NetworkIdentity>();
         Rb = GetComponent<Rigidbody2D>();
+		gameController = GameController.getInstance();
     }
 
     // Update is called once per frame
@@ -36,5 +38,9 @@ public class PlayerComponent : NetworkBehaviour {
     public void CmdAccelerateInDirection(Vector2 GoalLoc){
         Rb.velocity += (GoalLoc - Rb.position);
     }
+
+	public void Die() {
+		gameController.GameOver (MyNetworkID.netId);
+	}
 }
 

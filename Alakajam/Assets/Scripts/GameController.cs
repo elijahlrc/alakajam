@@ -7,8 +7,8 @@ using UnityEngine.Networking;
 public class GameController : NetworkBehaviour {
 
 	public static GameController instance;
-	public GameObject player1;
-	public GameObject player2;
+	public PlayerComponent player1;
+	public PlayerComponent player2;
 	public Text scoreText;
 	public Text restartText;
 	public Text gameOverText;
@@ -29,6 +29,10 @@ public class GameController : NetworkBehaviour {
 		gameOverPanel.SetActive(false);
 			
 	}
+
+	public static GameController getInstance () {
+		return instance;
+	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -47,8 +51,7 @@ public class GameController : NetworkBehaviour {
 			dist = Vector2.Distance(player1.transform.position, player2.transform.position);
 		}
 		gameOverPanel.SetActive(false);
-		player1.SetActive (true);
-		player2.SetActive (true);
+
 	}   
 
 	public void GameOver(NetworkInstanceId nid)
@@ -62,8 +65,7 @@ public class GameController : NetworkBehaviour {
 		}
 		gameOver = true;
 		gameOverPanel.SetActive(true);
-		player1.SetActive (false);
-		player2.SetActive (false);
+
 	}
 
 
