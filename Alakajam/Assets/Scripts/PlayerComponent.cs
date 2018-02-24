@@ -54,10 +54,8 @@ public class PlayerComponent : RadarDetectible
                 CmdDropMissile(goalPosInWorldSpace);
             }
 
-
-            if (Input.GetKeyDown("space") && LastRadarpingTime < Time.time - RadarPingCooldown) {
-                foreach(RadarDetectible Obj in RadarDetectible.DetectableObjects)
-                {
+            if (LastRadarpingTime < Time.time - RadarPingCooldown) {
+                foreach(RadarDetectible Obj in RadarDetectible.DetectableObjects){
                     Obj.PingMe(this.transform.position);
                 }
                 LastRadarpingTime = Time.time;
@@ -65,14 +63,13 @@ public class PlayerComponent : RadarDetectible
         }
 
         if (MyNetworkID.isServer) {
-            print("IsServer true");
         }
 
     }
 
     public override void PingMe(Vector2 PingCenter){
         //maybe some kind of "is visible" check?
-        if (!isLocalPlayer) {
+        if (!isLocalPlayer) { //&& currentAcc != Vector2.zero) {
             Instantiate(radarSignaturePFX, transform.position, transform.rotation);
         }
     }
