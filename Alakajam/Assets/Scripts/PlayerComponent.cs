@@ -40,7 +40,7 @@ public class PlayerComponent : RadarDetectible
         }
     }
 
-    private void OnPlayerNumberSet(int playerNumber)
+    void OnPlayerNumberSet(int playerNumber)
     {
         gameObject.layer = gameController.GetLayer(playerNumber);
     }
@@ -103,7 +103,7 @@ public class PlayerComponent : RadarDetectible
         Vector2 direction = goalLoc - Rb.position;
         direction.Normalize();
         GameObject missile = Instantiate(missilePrefab, transform.position, Quaternion.LookRotation(Vector3.forward, direction));
-        missile.layer = gameObject.layer;
+        missile.GetComponent<DelayMissile>().layer = gameObject.layer;
         NetworkServer.Spawn(missile);
     }
 
@@ -113,13 +113,21 @@ public class PlayerComponent : RadarDetectible
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Die();
+        if (MyNetworkID.isServer) {
+            GameObject g = collision.gameObject;
+            DelayMissile dM = g.GetComponent<DelayMissile>();
+            if (dM)
+            {
+                RpcDie();
+            }
+        }
     }
 
-    private void Die() {
+    [ClientRpc]
+    private void RpcDie() {
         Instantiate(explosionEffect, transform.position, transform.rotation);
         Destroy(this.gameObject);
-		gameController.GameOver (MyNetworkID.netId);
+		gameController.RpcGameOver (MyNetworkID.netId);
 	}
 }
 
