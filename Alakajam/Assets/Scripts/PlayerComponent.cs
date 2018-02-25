@@ -21,6 +21,7 @@ public class PlayerComponent : RadarDetectible
     private float LastRadarpingTime;
     
     bool WasThrusting;
+    [SyncVar(hook = "OnPlayerNumberSet")]
     int playerNumber;
     // Use this for initialization
     void Start () {
@@ -31,7 +32,16 @@ public class PlayerComponent : RadarDetectible
         if (!isLocalPlayer) {
             GetComponent<SpriteRenderer>().enabled = false;
         }
-        playerNumber = gameController.RegisterPlayer(this);
+
+        if (MyNetworkID.isServer)
+        {
+            playerNumber = gameController.RegisterPlayer(this);
+            //gameObject.layer = gameController.GetLayer(playerNumber);
+        }
+    }
+
+    private void OnPlayerNumberSet(int playerNumber)
+    {
         gameObject.layer = gameController.GetLayer(playerNumber);
     }
 
