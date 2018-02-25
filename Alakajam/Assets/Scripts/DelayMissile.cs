@@ -61,10 +61,10 @@ public class DelayMissile : RadarDetectible{
             timeTillLaunch -= Time.fixedDeltaTime;
         } else if (accelTimeLeft > 0)
         {
-            if (!spriteRenderer.enabled)
-            {
-                GetSpriteRenderer().enabled = true;
-            }
+            //if (!spriteRenderer.enabled)
+            //{
+            //    GetSpriteRenderer().enabled = true;
+            //}
             if (!thrusterEffect.isEmitting)
             {
                 thrusterEffect.Play();
