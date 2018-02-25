@@ -1,0 +1,1137 @@
+fileFormatVersion: 2
+guid: f5171d45121aa4e15a6cb39af74d9f8b
+timeCreated: 1519538400
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Ping_Sheet_0
+    21300002: Ping_Sheet_1
+    21300004: Ping_Sheet_2
+    21300006: Ping_Sheet_3
+    21300008: Ping_Sheet_4
+    21300010: Ping_Sheet_5
+    21300012: Ping_Sheet_6
+    21300014: Ping_Sheet_7
+    21300016: Ping_Sheet_8
+    21300018: Ping_Sheet_9
+    21300020: Ping_Sheet_10
+    21300022: Ping_Sheet_11
+    21300024: Ping_Sheet_12
+    21300026: Ping_Sheet_13
+    21300028: Ping_Sheet_14
+    21300030: Ping_Sheet_15
+    21300032: Ping_Sheet_16
+    21300034: Ping_Sheet_17
+    21300036: Ping_Sheet_18
+    21300038: Ping_Sheet_19
+    21300040: Ping_Sheet_20
+    21300042: Ping_Sheet_21
+    21300044: Ping_Sheet_22
+    21300046: Ping_Sheet_23
+    21300048: Ping_Sheet_24
+    21300050: Ping_Sheet_25
+    21300052: Ping_Sheet_26
+    21300054: Ping_Sheet_27
+    21300056: Ping_Sheet_28
+    21300058: Ping_Sheet_29
+    21300060: Ping_Sheet_30
+    21300062: Ping_Sheet_31
+    21300064: Ping_Sheet_32
+    21300066: Ping_Sheet_33
+    21300068: Ping_Sheet_34
+    21300070: Ping_Sheet_35
+    21300072: Ping_Sheet_36
+    21300074: Ping_Sheet_37
+    21300076: Ping_Sheet_38
+    21300078: Ping_Sheet_39
+    21300080: Ping_Sheet_40
+    21300082: Ping_Sheet_41
+    21300084: Ping_Sheet_42
+    21300086: Ping_Sheet_43
+    21300088: Ping_Sheet_44
+    21300090: Ping_Sheet_45
+    21300092: Ping_Sheet_46
+    21300094: Ping_Sheet_47
+    21300096: Ping_Sheet_48
+    21300098: Ping_Sheet_49
+    21300100: Ping_Sheet_50
+    21300102: Ping_Sheet_51
+    21300104: Ping_Sheet_52
+    21300106: Ping_Sheet_53
+    21300108: Ping_Sheet_54
+    21300110: Ping_Sheet_55
+    21300112: Ping_Sheet_56
+    21300114: Ping_Sheet_57
+    21300116: Ping_Sheet_58
+    21300118: Ping_Sheet_59
+    21300120: Ping_Sheet_60
+    21300122: Ping_Sheet_61
+    21300124: Ping_Sheet_62
+    21300126: Ping_Sheet_63
+    21300128: Ping_Sheet_64
+    21300130: Ping_Sheet_65
+    21300132: Ping_Sheet_66
+    21300134: Ping_Sheet_67
+    21300136: Ping_Sheet_68
+    21300138: Ping_Sheet_69
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 75
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Ping_Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 871
+        y: 9079
+        width: 173
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 2778
+        y: 9072
+        width: 203
+        height: 195
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 4692
+        y: 9064
+        width: 218
+        height: 210
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 6607
+        y: 9057
+        width: 233
+        height: 225
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 8521
+        y: 9049
+        width: 248
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 10436
+        y: 9042
+        width: 263
+        height: 255
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 12350
+        y: 9034
+        width: 278
+        height: 270
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 14265
+        y: 9027
+        width: 293
+        height: 285
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 803
+        y: 7938
+        width: 301
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 2725
+        y: 7930
+        width: 308
+        height: 316
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 4640
+        y: 7923
+        width: 323
+        height: 330
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 6554
+        y: 7915
+        width: 338
+        height: 346
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 8469
+        y: 7908
+        width: 353
+        height: 353
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 10383
+        y: 7900
+        width: 368
+        height: 368
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 12298
+        y: 7900
+        width: 383
+        height: 376
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 14213
+        y: 7893
+        width: 390
+        height: 390
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 758
+        y: 6804
+        width: 398
+        height: 398
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 2673
+        y: 6796
+        width: 413
+        height: 413
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 4587
+        y: 6789
+        width: 428
+        height: 428
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 6502
+        y: 6789
+        width: 443
+        height: 435
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 8424
+        y: 6781
+        width: 443
+        height: 443
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 10338
+        y: 6774
+        width: 458
+        height: 458
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 12253
+        y: 6774
+        width: 473
+        height: 465
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 14167
+        y: 6766
+        width: 481
+        height: 481
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 5677
+        width: 488
+        height: 488
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 2628
+        y: 5670
+        width: 503
+        height: 503
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_26
+      rect:
+        serializedVersion: 2
+        x: 4542
+        y: 5662
+        width: 518
+        height: 518
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_27
+      rect:
+        serializedVersion: 2
+        x: 6464
+        y: 5662
+        width: 518
+        height: 518
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_28
+      rect:
+        serializedVersion: 2
+        x: 8379
+        y: 5655
+        width: 533
+        height: 533
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_29
+      rect:
+        serializedVersion: 2
+        x: 10293
+        y: 5647
+        width: 548
+        height: 548
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_30
+      rect:
+        serializedVersion: 2
+        x: 12215
+        y: 5647
+        width: 548
+        height: 556
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_31
+      rect:
+        serializedVersion: 2
+        x: 14130
+        y: 5640
+        width: 563
+        height: 563
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_32
+      rect:
+        serializedVersion: 2
+        x: 668
+        y: 4551
+        width: 578
+        height: 578
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_33
+      rect:
+        serializedVersion: 2
+        x: 2583
+        y: 4543
+        width: 585
+        height: 594
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_34
+      rect:
+        serializedVersion: 2
+        x: 4505
+        y: 4543
+        width: 593
+        height: 594
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_35
+      rect:
+        serializedVersion: 2
+        x: 6419
+        y: 4536
+        width: 608
+        height: 608
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_36
+      rect:
+        serializedVersion: 2
+        x: 8334
+        y: 4528
+        width: 615
+        height: 624
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_37
+      rect:
+        serializedVersion: 2
+        x: 10256
+        y: 4528
+        width: 623
+        height: 624
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_38
+      rect:
+        serializedVersion: 2
+        x: 12170
+        y: 4521
+        width: 638
+        height: 638
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_39
+      rect:
+        serializedVersion: 2
+        x: 14085
+        y: 4513
+        width: 653
+        height: 654
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_40
+      rect:
+        serializedVersion: 2
+        x: 631
+        y: 3432
+        width: 653
+        height: 653
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_41
+      rect:
+        serializedVersion: 2
+        x: 2545
+        y: 3424
+        width: 668
+        height: 669
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_42
+      rect:
+        serializedVersion: 2
+        x: 4460
+        y: 3417
+        width: 683
+        height: 683
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_43
+      rect:
+        serializedVersion: 2
+        x: 6382
+        y: 3417
+        width: 683
+        height: 683
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_44
+      rect:
+        serializedVersion: 2
+        x: 8296
+        y: 3409
+        width: 698
+        height: 699
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_45
+      rect:
+        serializedVersion: 2
+        x: 10211
+        y: 3402
+        width: 713
+        height: 713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_46
+      rect:
+        serializedVersion: 2
+        x: 12133
+        y: 3402
+        width: 713
+        height: 713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_47
+      rect:
+        serializedVersion: 2
+        x: 14047
+        y: 3394
+        width: 728
+        height: 729
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_48
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 2305
+        width: 743
+        height: 744
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_49
+      rect:
+        serializedVersion: 2
+        x: 2508
+        y: 2305
+        width: 743
+        height: 744
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_50
+      rect:
+        serializedVersion: 2
+        x: 4422
+        y: 2298
+        width: 758
+        height: 758
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_51
+      rect:
+        serializedVersion: 2
+        x: 6337
+        y: 2290
+        width: 773
+        height: 774
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_52
+      rect:
+        serializedVersion: 2
+        x: 8259
+        y: 2290
+        width: 773
+        height: 774
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_53
+      rect:
+        serializedVersion: 2
+        x: 10173
+        y: 2283
+        width: 788
+        height: 788
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_54
+      rect:
+        serializedVersion: 2
+        x: 12088
+        y: 2275
+        width: 803
+        height: 804
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_55
+      rect:
+        serializedVersion: 2
+        x: 14010
+        y: 2275
+        width: 803
+        height: 804
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_56
+      rect:
+        serializedVersion: 2
+        x: 548
+        y: 1187
+        width: 818
+        height: 818
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_57
+      rect:
+        serializedVersion: 2
+        x: 2463
+        y: 1179
+        width: 833
+        height: 834
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_58
+      rect:
+        serializedVersion: 2
+        x: 4385
+        y: 1172
+        width: 833
+        height: 841
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_59
+      rect:
+        serializedVersion: 2
+        x: 6299
+        y: 1172
+        width: 848
+        height: 848
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_60
+      rect:
+        serializedVersion: 2
+        x: 8214
+        y: 1164
+        width: 863
+        height: 864
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_61
+      rect:
+        serializedVersion: 2
+        x: 10136
+        y: 1157
+        width: 863
+        height: 871
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_62
+      rect:
+        serializedVersion: 2
+        x: 12050
+        y: 1157
+        width: 878
+        height: 878
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_63
+      rect:
+        serializedVersion: 2
+        x: 13965
+        y: 1149
+        width: 893
+        height: 894
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_64
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 60
+        width: 893
+        height: 901
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_65
+      rect:
+        serializedVersion: 2
+        x: 2425
+        y: 60
+        width: 908
+        height: 909
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_66
+      rect:
+        serializedVersion: 2
+        x: 4340
+        y: 53
+        width: 923
+        height: 916
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_67
+      rect:
+        serializedVersion: 2
+        x: 6262
+        y: 45
+        width: 923
+        height: 931
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_68
+      rect:
+        serializedVersion: 2
+        x: 8176
+        y: 45
+        width: 938
+        height: 939
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ping_Sheet_69
+      rect:
+        serializedVersion: 2
+        x: 10091
+        y: 38
+        width: 953
+        height: 946
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
