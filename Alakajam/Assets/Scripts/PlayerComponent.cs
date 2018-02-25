@@ -114,11 +114,11 @@ public class PlayerComponent : RadarDetectible
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (MyNetworkID.isServer) {
-            GameObject g = collision.gameObject;
-            DelayMissile dM = g.GetComponent<DelayMissile>();
-            if (dM)
+            if (collision.gameObject.GetComponent<DelayMissile>())
             {
                 RpcDie();
+                gameController.RpcGameOver(MyNetworkID.netId);
+                gameController.gameOver = true;
             }
         }
     }
@@ -126,8 +126,17 @@ public class PlayerComponent : RadarDetectible
     [ClientRpc]
     private void RpcDie() {
         Instantiate(explosionEffect, transform.position, transform.rotation);
-        Destroy(this.gameObject);
-		gameController.RpcGameOver (MyNetworkID.netId);
-	}
+        SetAlive(false);
+    }
+
+    public void SetAlive(bool alive) {
+        GetComponent<PlayerComponent>().enabled = alive;
+        if (isLocalPlayer)
+        {
+            GetComponent<PolygonCollider2D>().enabled = alive;
+            GetComponent<SpriteRenderer>().enabled = alive;
+        }
+    }
 }
+
 
