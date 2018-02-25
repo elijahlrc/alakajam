@@ -8,7 +8,7 @@ using UnityEngine.Networking;
 [RequireComponent(typeof(ParticleSystem))]
 public class DelayMissile : RadarDetectible{
 
-    public static float LAUNCH_DELAY = 1f;
+    public static float LAUNCH_DELAY = 5f;
     public static float ACCEL_DURATION = 1f;
     public static float ACCELERATION = 1f;
     public GameObject radarSignaturePFX;
@@ -27,9 +27,9 @@ public class DelayMissile : RadarDetectible{
     void OnLayerSynced(int layer)
     {
         gameObject.layer = layer;
-        if (LaunchedByLocalPlayer())
+        if (LaunchedByLocalPlayer(layer))
         {
-            spriteRenderer.enabled = true;
+            GetSpriteRenderer().enabled = true;
         }
     }
 
@@ -40,10 +40,13 @@ public class DelayMissile : RadarDetectible{
         accelTimeLeft = ACCEL_DURATION;
         rb = GetComponent<Rigidbody2D>();
         thrusterEffect = GetComponent<ParticleSystem>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        if (!LaunchedByLocalPlayer(layer))
+        {
+            GetSpriteRenderer().enabled = false;
+        }
     }
 
-    bool LaunchedByLocalPlayer()
+    bool LaunchedByLocalPlayer(int layer)
     {
         GameController gameController = GameController.getInstance();
         PlayerComponent p1 = gameController.player1;
@@ -60,7 +63,7 @@ public class DelayMissile : RadarDetectible{
         {
             if (!spriteRenderer.enabled)
             {
-                spriteRenderer.enabled = true;
+                GetSpriteRenderer().enabled = true;
             }
             if (!thrusterEffect.isEmitting)
             {
@@ -105,4 +108,14 @@ public class DelayMissile : RadarDetectible{
         GameObject RadarSignature = Instantiate(radarSignaturePFX, transform.position, Quaternion.identity);
         RadarSignature.GetComponent<RadarPingDelay>().delay = ((Vector2)transform.position - PingCenter).magnitude/2.5f;
     }
+
+    private SpriteRenderer GetSpriteRenderer()
+    {
+        if (spriteRenderer == null)
+        {
+            spriteRenderer = GetComponent<SpriteRenderer>();
+        }
+        return spriteRenderer;
+    }
+
 }
