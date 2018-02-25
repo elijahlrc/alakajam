@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 199392145691957286}
   - component: {fileID: 198620043029715512}
   - component: {fileID: 114260385558237082}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DelayMissile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,6 +223,7 @@ MonoBehaviour:
     type: 2}
   explosionEffect: {fileID: 1008988827587978, guid: e0510e9a291971843adeda556edc612a,
     type: 2}
+  layer: 0
 --- !u!198 &198620043029715512
 ParticleSystem:
   m_ObjectHideFlags: 1
