@@ -219,6 +219,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b59354fd9eb124458d3b8fd0c9bfecf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LAUNCH_DELAY: 1.5
+  ACCEL_DURATION: 2
+  ACCELERATION: 0.5
   radarSignaturePFX: {fileID: 1893134672437802, guid: 0b94b9baee9a7c7419990e1b045599a2,
     type: 2}
   explosionEffect: {fileID: 1008988827587978, guid: e0510e9a291971843adeda556edc612a,
@@ -3670,11 +3673,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1231244325
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e8338c73d1e6cd04982b48c07621dcf7, type: 3}
-  m_Color: {r: 1, g: 0.9724138, b: 0, a: 1}
+  m_Color: {r: 0.5294118, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

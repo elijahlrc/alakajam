@@ -23,7 +23,9 @@ public class PlayerComponent : RadarDetectible
 
     public float radarPingCooldown = 5;
     private float lastRadarPingTime;
-    
+
+    private Animator MyAnim;
+
     bool WasThrusting;
     [SyncVar(hook = "OnPlayerNumberSet")]
     int playerNumber;
@@ -41,6 +43,8 @@ public class PlayerComponent : RadarDetectible
             playerNumber = GetGameController().RegisterPlayer(this);
             //gameObject.layer = gameController.GetLayer(playerNumber);
         }
+
+        MyAnim = GetComponent<Animator>();
     }
 
     void OnPlayerNumberSet(int playerNumber)
@@ -52,8 +56,9 @@ public class PlayerComponent : RadarDetectible
     void Update () {
         if(isLocalPlayer) {
             bool NowThrusting = Input.GetKey("mouse 1");
+            Vector3 MousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             if (NowThrusting) {
-                Vector2 goalPosInWorldSpace = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Vector2 goalPosInWorldSpace = MousePos;
             CmdAccelerateInDirection(true, goalPosInWorldSpace);
                 WasThrusting = true;
             } else {
@@ -67,7 +72,7 @@ public class PlayerComponent : RadarDetectible
             if (firePressed && currentRockets > 0)
             {
                 currentRockets  -= 1;
-                Vector2 goalPosInWorldSpace = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Vector2 goalPosInWorldSpace = MousePos;
                 CmdDropMissile(goalPosInWorldSpace);
             }
             if (currentRockets < MaxRockets)
@@ -85,6 +90,10 @@ public class PlayerComponent : RadarDetectible
                 }
                 lastRadarPingTime = Time.time;
             }
+
+            //animator
+            Vector2 FacingDirection = MousePos - transform.position;
+            MyAnim.Play("ShipRotator", 0, (12f / 24f) - (Mathf.Atan2(FacingDirection.y, FacingDirection.x) / (2 * Mathf.PI)));
         }
 
         if (MyNetworkID.isServer) {

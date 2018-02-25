@@ -3,7 +3,31 @@ guid: a88bd56cf79644a45a31938491959d41
 timeCreated: 1519544129
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: ship_sprite_sheet_0
+    21300002: ship_sprite_sheet_1
+    21300004: ship_sprite_sheet_2
+    21300006: ship_sprite_sheet_3
+    21300008: ship_sprite_sheet_4
+    21300010: ship_sprite_sheet_5
+    21300012: ship_sprite_sheet_6
+    21300014: ship_sprite_sheet_7
+    21300016: ship_sprite_sheet_8
+    21300018: ship_sprite_sheet_9
+    21300020: ship_sprite_sheet_10
+    21300022: ship_sprite_sheet_11
+    21300024: ship_sprite_sheet_12
+    21300026: ship_sprite_sheet_13
+    21300028: ship_sprite_sheet_14
+    21300030: ship_sprite_sheet_15
+    21300032: ship_sprite_sheet_16
+    21300034: ship_sprite_sheet_17
+    21300036: ship_sprite_sheet_18
+    21300038: ship_sprite_sheet_19
+    21300040: ship_sprite_sheet_20
+    21300042: ship_sprite_sheet_21
+    21300044: ship_sprite_sheet_22
+    21300046: ship_sprite_sheet_23
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -40,7 +64,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -66,9 +90,365 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: ship_sprite_sheet_0
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 5015
+        width: 826
+        height: 154
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ship_sprite_sheet_1
+      rect:
+        serializedVersion: 2
+        x: 2502
+        y: 4974
+        width: 799
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ship_sprite_sheet_2
+      rect:
+        serializedVersion: 2
+        x: 4469
+        y: 4902
+        width: 727
+        height: 338
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ship_sprite_sheet_3
+      rect:
+        serializedVersion: 2
+        x: 6530
+        y: 4778
+        width: 447
+        height: 537
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ship_sprite_sheet_4
+      rect:
+        serializedVersion: 2
+        x: 835
+        y: 3813
+        width: 282
+        height: 594
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ship_sprite_sheet_5
+      rect:
+        serializedVersion: 2
+        x: 2757
+        y: 3813
+        width: 282
+        height: 594
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ship_sprite_sheet_6
+      rect:
+        serializedVersion: 2
+        x: 4698
+        y: 3798
+        width: 195
+        height: 616
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ship_sprite_sheet_7
+      rect:
+        serializedVersion: 2
+        x: 6553
+        y: 3813
+        width: 285
+        height: 594
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ship_sprite_sheet_8
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 2920
+        width: 450
+        height: 536
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ship_sprite_sheet_9
+      rect:
+        serializedVersion: 2
+        x: 2532
+        y: 2976
+        width: 608
+        height: 447
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ship_sprite_sheet_10
+      rect:
+        serializedVersion: 2
+        x: 4398
+        y: 3040
+        width: 728
+        height: 341
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ship_sprite_sheet_11
+      rect:
+        serializedVersion: 2
+        x: 6293
+        y: 3112
+        width: 800
+        height: 221
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ship_sprite_sheet_12
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 2225
+        width: 826
+        height: 154
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ship_sprite_sheet_13
+      rect:
+        serializedVersion: 2
+        x: 2472
+        y: 2191
+        width: 803
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ship_sprite_sheet_14
+      rect:
+        serializedVersion: 2
+        x: 4443
+        y: 2131
+        width: 724
+        height: 330
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ship_sprite_sheet_15
+      rect:
+        serializedVersion: 2
+        x: 6432
+        y: 2071
+        width: 597
+        height: 439
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ship_sprite_sheet_16
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 1091
+        width: 443
+        height: 526
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ship_sprite_sheet_17
+      rect:
+        serializedVersion: 2
+        x: 2742
+        y: 1053
+        width: 273
+        height: 590
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ship_sprite_sheet_18
+      rect:
+        serializedVersion: 2
+        x: 4709
+        y: 1042
+        width: 177
+        height: 608
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ship_sprite_sheet_19
+      rect:
+        serializedVersion: 2
+        x: 6579
+        y: 1053
+        width: 274
+        height: 589
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ship_sprite_sheet_20
+      rect:
+        serializedVersion: 2
+        x: 724
+        y: 160
+        width: 445
+        height: 529
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ship_sprite_sheet_21
+      rect:
+        serializedVersion: 2
+        x: 2562
+        y: 212
+        width: 601
+        height: 436
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ship_sprite_sheet_22
+      rect:
+        serializedVersion: 2
+        x: 4428
+        y: 272
+        width: 730
+        height: 331
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ship_sprite_sheet_23
+      rect:
+        serializedVersion: 2
+        x: 6320
+        y: 329
+        width: 803
+        height: 221
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
     outline: []
     physicsShape: []
   spritePackingTag: 

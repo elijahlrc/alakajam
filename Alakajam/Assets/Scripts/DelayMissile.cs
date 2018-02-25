@@ -8,9 +8,9 @@ using UnityEngine.Networking;
 [RequireComponent(typeof(ParticleSystem))]
 public class DelayMissile : RadarDetectible{
 
-    public static float LAUNCH_DELAY = 2f;
-    public static float ACCEL_DURATION = 1f;
-    public static float ACCELERATION = 2f;
+    public float LAUNCH_DELAY = 2f;
+    public float ACCEL_DURATION = 1f;
+    public float ACCELERATION = 2f;
     public GameObject radarSignaturePFX;
 
     private float timeTillLaunch;

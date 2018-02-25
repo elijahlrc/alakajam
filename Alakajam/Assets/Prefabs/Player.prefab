@@ -24,7 +24,8 @@ GameObject:
   - component: {fileID: 50122291763384304}
   - component: {fileID: 212663131402530124}
   - component: {fileID: 114865262230830304}
-  - component: {fileID: 60377673240808846}
+  - component: {fileID: 60489858027770864}
+  - component: {fileID: 95320136686775276}
   m_Layer: 10
   m_Name: Player
   m_TagString: GamePlayer
@@ -39,8 +40,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1769308681402132}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0071073957, y: 0.522179, z: -0.024096211}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -2.0183492, y: -2.1862793, z: -0.024096211}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -65,7 +66,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!60 &60377673240808846
+--- !u!60 &60489858027770864
 PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -81,7 +82,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 8.26, y: 1.54}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -89,10 +90,46 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0, y: 0.5}
-      - {x: -0.5, y: -0.000000021855694}
-      - {x: 0.00000004371139, y: -0.5}
-      - {x: 0.5, y: 0.0000000059624403}
+    - - {x: 0.9994467, y: -1.2039162}
+      - {x: 0.9994467, y: -0.34025532}
+      - {x: 0.92434573, y: -0.03985154}
+      - {x: 0.62394196, y: -0.19005342}
+      - {x: 0.66149247, y: 1.6499197}
+      - {x: 0.6990429, y: 2.0254245}
+      - {x: 0.43618962, y: 2.9641862}
+      - {x: 0.24843726, y: 3.114388}
+      - {x: -0.051966514, y: 3.114388}
+      - {x: -0.4650217, y: 2.9266357}
+      - {x: -0.5401226, y: 2.47603}
+      - {x: -0.69032454, y: 1.7625711}
+      - {x: -0.57767314, y: 0.26055223}
+      - {x: -0.9531778, y: -0.2276039}
+      - {x: -0.9531778, y: -1.0537143}
+      - {x: -0.91562736, y: -1.3165675}
+      - {x: -0.6152236, y: -1.8798246}
+      - {x: -0.57767314, y: -2.6683846}
+      - {x: -0.12706746, y: -3.0814397}
+      - {x: 0.09823537, y: -3.0814397}
+      - {x: 0.54884106, y: -2.705935}
+      - {x: 0.66149247, y: -1.1663657}
+      - {x: 0.8867953, y: -1.2790171}
+--- !u!95 &95320136686775276
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1769308681402132}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 99fe7bce0f043ab438a946ddc13f613a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114305470488325186
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -142,7 +179,9 @@ MonoBehaviour:
     type: 2}
   radarSignaturePFX: {fileID: 1893134672437802, guid: 0b94b9baee9a7c7419990e1b045599a2,
     type: 2}
-  radarPingCooldown: 0.5
+  MaxRockets: 4
+  TimeToReload: 1
+  radarPingCooldown: 0.3
 --- !u!114 &114865262230830304
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -198,7 +237,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 64dd96ce66927084c97957d01752d81e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a88bd56cf79644a45a31938491959d41, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
