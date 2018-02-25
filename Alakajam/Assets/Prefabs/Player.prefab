@@ -150,6 +150,9 @@ MonoBehaviour:
   MaxRockets: 4
   TimeToReload: 1
   radarPingCooldown: 0.4
+  captureRingPrefab: {fileID: 1162744706506874, guid: bf3c7ac5424be064dbf973719ab0589e,
+    type: 2}
+  captureTime: 0
 --- !u!114 &114865262230830304
 MonoBehaviour:
   m_ObjectHideFlags: 1
