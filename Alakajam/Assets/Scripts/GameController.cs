@@ -124,7 +124,6 @@ public class GameController : NetworkBehaviour {
         player1.captureTime = 0f;
         player2.captureTime = 0f;
         RpcRestartGame(planet.transform.position);
-
     }
 
     [ClientRpc]
@@ -171,6 +170,7 @@ public class GameController : NetworkBehaviour {
         {
             player2 = player;
             RpcPlayerJoined(player1.GetComponent<NetworkIdentity>().netId, player2.GetComponent<NetworkIdentity>().netId);
+            RpcRestartGame(planet.transform.position);
             return 2;
         } else
         {
