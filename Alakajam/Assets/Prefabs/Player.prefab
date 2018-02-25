@@ -138,6 +138,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missilePrefab: {fileID: 1367499386034444, guid: e05ca99fd8572724ab56095931a9c38a,
     type: 2}
+  explosionEffect: {fileID: 1764047290870458, guid: f1823c0693cdf4e43876fd2d044cc410,
+    type: 2}
   radarSignaturePFX: {fileID: 1893134672437802, guid: 0b94b9baee9a7c7419990e1b045599a2,
     type: 2}
 --- !u!114 &114865262230830304

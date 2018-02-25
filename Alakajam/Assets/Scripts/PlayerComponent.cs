@@ -12,6 +12,7 @@ public class PlayerComponent : RadarDetectible
     Rigidbody2D Rb;
     GameController gameController;
     public GameObject missilePrefab;
+    public GameObject explosionEffect;
     Vector2 currentAcc;
     public GameObject radarSignaturePFX;
     bool WasThrusting;
@@ -96,7 +97,14 @@ public class PlayerComponent : RadarDetectible
         Rb.velocity += currentAcc * Time.fixedDeltaTime;
     }
 
-	private void Die() {
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Die();
+    }
+
+    private void Die() {
+        Instantiate(explosionEffect, transform.position, transform.rotation);
+        Destroy(this.gameObject);
 		gameController.GameOver (MyNetworkID.netId);
 	}
 }
