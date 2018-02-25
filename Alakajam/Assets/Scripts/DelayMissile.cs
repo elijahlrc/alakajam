@@ -106,7 +106,7 @@ public class DelayMissile : RadarDetectible{
     public override void PingMe(Vector2 PingCenter)
     {
         GameObject RadarSignature = Instantiate(radarSignaturePFX, transform.position, Quaternion.identity);
-        RadarSignature.GetComponent<RadarPingDelay>().delay = ((Vector2)transform.position - PingCenter).magnitude/2.5f;
+        RadarSignature.GetComponent<RadarPingDelay>().delay = ((Vector2)transform.position - PingCenter).magnitude / 3f;
     }
 
     private SpriteRenderer GetSpriteRenderer()
