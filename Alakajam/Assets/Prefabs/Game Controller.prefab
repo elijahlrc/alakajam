@@ -86,9 +86,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1: {fileID: 0}
   player2: {fileID: 0}
-  spawnZoneSize: 4
-  spawnMinDist: 2.5
-  planet: {fileID: 1789138266658310, guid: 98ddab22e5e044a2492be4c568f820cd, type: 2}
+  planet: {fileID: 1696957406162514, guid: 98ddab22e5e044a2492be4c568f820cd, type: 2}
   gameOver: 0
   gameOverPanel: {fileID: 1130807011760090, guid: 2c4c2f7e0984dfc4e8f5dd1bede82a8e,
     type: 2}

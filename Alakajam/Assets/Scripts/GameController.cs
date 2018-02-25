@@ -33,10 +33,10 @@ public class GameController : NetworkBehaviour {
     void Start () {
 		gameOver = false;
 		gameOverPanel.SetActive(false);
-		planet.transform.position = Random.insideUnitCircle * 50;	
-
+		planet.transform.position = Random.insideUnitCircle * 2;	
         if (GetComponent<NetworkIdentity>().isServer)
         {
+			planet = Instantiate(planet, Vector3.zero, Quaternion.identity);
             gameOverPanel = Instantiate(gameOverPanel, Vector3.zero, Quaternion.identity);
         }
 	}
