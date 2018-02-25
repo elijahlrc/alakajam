@@ -15,7 +15,9 @@ public class GameController : NetworkBehaviour {
     public float spawnMinDist;
     public GameObject planet;
 	public bool gameOver;
-	public GameObject gameOverPanel;
+	public GameObject gameOverLossPanel;
+    public GameObject gameOverWinPanel;
+
 
     void Awake()
     {
@@ -31,13 +33,20 @@ public class GameController : NetworkBehaviour {
 
     // Use this for initialization
     void Start () {
-		gameOver = false;
-		gameOverPanel.SetActive(false);
-		planet.transform.position = Random.insideUnitCircle * 2;	
+        gameOver = false;
+
+
+        planet.transform.position = Random.insideUnitCircle * 2;
+
+        gameOverLossPanel = Instantiate(gameOverLossPanel, Vector3.zero, Quaternion.identity);
+        gameOverWinPanel = Instantiate(gameOverWinPanel, Vector3.zero, Quaternion.identity);
+
+        gameOverLossPanel.SetActive(false);
+        gameOverWinPanel.SetActive(false);
+
         if (GetComponent<NetworkIdentity>().isServer)
         {
 			planet = Instantiate(planet, Vector3.zero, Quaternion.identity);
-            gameOverPanel = Instantiate(gameOverPanel, Vector3.zero, Quaternion.identity);
         }
 	}
 
@@ -62,8 +71,13 @@ public class GameController : NetworkBehaviour {
         player1.transform.position = Random.insideUnitCircle * spawnZoneSize;
         player2.transform.position = Random.insideUnitCircle * spawnZoneSize;
         float dist = Vector2.Distance(player1.transform.position, player2.transform.position);
+        if (spawnMinDist > spawnZoneSize*2)
+        {
+            spawnZoneSize = spawnMinDist;
+        }
         while (dist <= spawnMinDist)
         {
+            
             player2.transform.position = Random.insideUnitCircle * spawnZoneSize;
             dist = Vector2.Distance(player1.transform.position, player2.transform.position);
         }
@@ -82,25 +96,26 @@ public class GameController : NetworkBehaviour {
     public void RpcRestartGame() {
         player1.SetAlive(true);
         player2.SetAlive(true);
-        gameOverPanel.SetActive(false);
+        gameOverLossPanel.SetActive(false);
+        gameOverWinPanel.SetActive(false);
 
     }
 
     [ClientRpc]
     public void RpcGameOver(NetworkInstanceId nid)
 	{
-		if(true) {
-            //TODO: fix this check and put it back in
-            //this.isLocalPlayer && this.netId==nid) {
-			//winning player calls this with their net id thing
-//			player1.score += 1;
-			//gameOverPanel.GetComponentInChildren<Text>().text = "You won :)";
-		} else {
-            //gameOverPanel.GetComponentInChildren<Text>().text = "loser :>D";
-		}
-		gameOver = true;
-		gameOverPanel.SetActive(true);
+        NetworkIdentity player1NetId = player1.GetComponent<NetworkIdentity>();
+        NetworkIdentity player2NetId = player2.GetComponent<NetworkIdentity>();
 
+        if (player1NetId.isLocalPlayer && player1NetId.netId == nid ||
+            player2NetId.isLocalPlayer && player2NetId.netId == nid)
+        {
+            gameOverLossPanel.SetActive(true);
+        }
+        else {
+            gameOverWinPanel.SetActive(true);
+        }
+        gameOver = true;
 	}
 
     public int RegisterPlayer(PlayerComponent player)

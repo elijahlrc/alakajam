@@ -155,7 +155,7 @@ public class PlayerComponent : RadarDetectible
         GetComponent<PlayerComponent>().enabled = alive;
         if (isLocalPlayer)
         {
-            GetComponent<PolygonCollider2D>().enabled = alive;
+            GetComponent<CircleCollider2D>().enabled = alive;
             GetComponent<SpriteRenderer>().enabled = alive;
         }
     }
