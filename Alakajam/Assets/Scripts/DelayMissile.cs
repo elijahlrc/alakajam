@@ -20,6 +20,14 @@ public class DelayMissile : RadarDetectible{
     public GameObject explosionEffect;
     private ParticleSystem thrusterEffect;
 
+    [SyncVar(hook = "OnLayerSynced")]
+    public int layer;
+
+    void OnLayerSynced(int layer)
+    {
+        gameObject.layer = layer;
+    }
+
     // Use this for initialization
     void Start () {
         timeTillLaunch = LAUNCH_DELAY;
