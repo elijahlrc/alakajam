@@ -181,7 +181,7 @@ MonoBehaviour:
     type: 2}
   MaxRockets: 4
   TimeToReload: 1
-  radarPingCooldown: 0.3
+  radarPingCooldown: 0.4
 --- !u!114 &114865262230830304
 MonoBehaviour:
   m_ObjectHideFlags: 1
