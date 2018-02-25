@@ -11,7 +11,8 @@ public class GameController : NetworkBehaviour {
 
     public PlayerComponent player1;
 	public PlayerComponent player2;
-
+    public float spawnZoneSize;
+    public float spawnMinDist;
     public GameObject planet;
 	public bool gameOver;
 	public GameObject gameOverPanel;
@@ -58,12 +59,12 @@ public class GameController : NetworkBehaviour {
         //reload the current scene
         //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         //randomize player and planet positions
-        player1.transform.position = Random.insideUnitCircle * 2;
-        player2.transform.position = Random.insideUnitCircle * 2;
+        player1.transform.position = Random.insideUnitCircle * spawnZoneSize;
+        player2.transform.position = Random.insideUnitCircle * spawnZoneSize;
         float dist = Vector2.Distance(player1.transform.position, player2.transform.position);
-        while (dist <= 1)
+        while (dist <= spawnMinDist)
         {
-            player2.transform.position = Random.insideUnitCircle * 2;
+            player2.transform.position = Random.insideUnitCircle * spawnZoneSize;
             dist = Vector2.Distance(player1.transform.position, player2.transform.position);
         }
 
