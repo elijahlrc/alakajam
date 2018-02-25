@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(ParticleSystem))]
@@ -18,6 +19,14 @@ public class DelayMissile : RadarDetectible{
     private Rigidbody2D rb;
     public GameObject explosionEffect;
     private ParticleSystem thrusterEffect;
+
+    [SyncVar(hook = "OnLayerSynced")]
+    public int layer;
+
+    void OnLayerSynced(int layer)
+    {
+        gameObject.layer = layer;
+    }
 
     // Use this for initialization
     void Start () {
