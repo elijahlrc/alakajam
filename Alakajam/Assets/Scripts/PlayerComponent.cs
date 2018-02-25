@@ -31,7 +31,7 @@ public class PlayerComponent : RadarDetectible
     int playerNumber;
 
     public GameObject captureRingPrefab;
-    private GameObject captureRing;
+    public GameObject captureRing;
     [SyncVar(hook = "OnCaptureProgress")]
     public float captureTime = 0f;
 

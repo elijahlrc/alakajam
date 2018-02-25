@@ -40,9 +40,6 @@ public class GameController : NetworkBehaviour {
     void Start () {
         gameOver = false;
 
-
-        planet.transform.position = Random.insideUnitCircle * 2;
-
         gameOverLossPanel = Instantiate(gameOverLossPanel, Vector3.zero, Quaternion.identity);
         gameOverWinPanel = Instantiate(gameOverWinPanel, Vector3.zero, Quaternion.identity);
 
@@ -52,11 +49,13 @@ public class GameController : NetworkBehaviour {
         if (GetComponent<NetworkIdentity>().isServer)
         {
 			planet = Instantiate(planet, Vector3.zero, Quaternion.identity);
+            planet.transform.position = Random.insideUnitCircle * 2;
 
+            NetworkServer.Spawn(planet);
         }
-	}
+    }
 
-	public static GameController getInstance () {
+    public static GameController getInstance () {
 		return instance;
 	}
 	
@@ -122,18 +121,27 @@ public class GameController : NetworkBehaviour {
 
         player1.SetAlive(true);
         player2.SetAlive(true);
-        RpcRestartGame();
+        player1.captureTime = 0f;
+        player2.captureTime = 0f;
+        RpcRestartGame(planet.transform.position);
 
     }
 
     [ClientRpc]
     //Restarts game on client, sets players visible and game over screen invisible.
-    public void RpcRestartGame() {
+    public void RpcRestartGame(Vector2 planetloc) {
         player1.SetAlive(true);
         player2.SetAlive(true);
         gameOverLossPanel.SetActive(false);
         gameOverWinPanel.SetActive(false);
-
+        if(player1.isLocalPlayer)
+        {
+            player1.captureRing.transform.position = planetloc;
+        }
+        if (player2.isLocalPlayer)
+        {
+            player2.captureRing.transform.position = planetloc;
+        }
     }
 
     [ClientRpc]
