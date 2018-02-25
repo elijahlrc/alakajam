@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4114946316811590}
   - component: {fileID: 198573472308965426}
   - component: {fileID: 199986533676682442}
+  - component: {fileID: 114250095529165064}
   m_Layer: 0
   m_Name: RadarSignature
   m_TagString: Untagged
@@ -41,6 +42,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114250095529165064
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1893134672437802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8387032299b656468e7add345ca9205, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0
 --- !u!198 &198573472308965426
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -53,7 +66,7 @@ ParticleSystem:
   stopAction: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(ParticleSystem))]
@@ -53,19 +54,22 @@ public class DelayMissile : RadarDetectible{
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        thrusterEffect.Stop();
-        Instantiate(explosionEffect, transform.position, transform.rotation);
-        Destroy(this.gameObject);
-
+        if (GetComponent<NetworkIdentity>().isServer)
+        {
+            thrusterEffect.Stop();
+            Instantiate(explosionEffect, transform.position, transform.rotation);
+            Destroy(this.gameObject);
+        }
     }
 
     private bool OutOfBounds()
     {
-        return false;
+        return transform.position.magnitude > 10;
     }
 
     public override void PingMe(Vector2 PingCenter)
     {
-        Instantiate(radarSignaturePFX, transform.position, Quaternion.identity);
+        GameObject RadarSignature = Instantiate(radarSignaturePFX, transform.position, Quaternion.identity);
+        RadarSignature.GetComponent<RadarPingDelay>().delay = ((Vector2)transform.position - PingCenter).magnitude;
     }
 }

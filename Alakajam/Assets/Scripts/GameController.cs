@@ -49,9 +49,10 @@ public class GameController : NetworkBehaviour {
 		}
 		gameOverPanel.SetActive(false);
 
-	}   
-
-	public void GameOver(NetworkInstanceId nid)
+	}
+    
+    [ClientRpc]
+    public void RpcGameOver(NetworkInstanceId nid)
 	{
 		if(this.isLocalPlayer && this.netId==nid){
 			//winning player calls this with their net id thing
