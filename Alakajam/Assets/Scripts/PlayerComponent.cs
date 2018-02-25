@@ -10,7 +10,6 @@ public class PlayerComponent : RadarDetectible
 
     NetworkIdentity MyNetworkID;
     Rigidbody2D Rb;
-    GameController gameController;
     public GameObject missilePrefab;
     public GameObject explosionEffect;
     [SyncVar]
@@ -28,21 +27,20 @@ public class PlayerComponent : RadarDetectible
         //base.Start();
         MyNetworkID = GetComponent<NetworkIdentity>();
         Rb = GetComponent<Rigidbody2D>();
-	    gameController = GameController.getInstance();
         if (!isLocalPlayer) {
             GetComponent<SpriteRenderer>().enabled = false;
         }
 
         if (MyNetworkID.isServer)
         {
-            playerNumber = gameController.RegisterPlayer(this);
+            playerNumber = GetGameController().RegisterPlayer(this);
             //gameObject.layer = gameController.GetLayer(playerNumber);
         }
     }
 
     void OnPlayerNumberSet(int playerNumber)
     {
-        gameObject.layer = gameController.GetLayer(playerNumber);
+        gameObject.layer = GetGameController().GetLayer(playerNumber);
     }
 
     // Update is called once per frame
@@ -117,8 +115,8 @@ public class PlayerComponent : RadarDetectible
             if (collision.gameObject.GetComponent<DelayMissile>())
             {
                 RpcDie();
-                gameController.RpcGameOver(MyNetworkID.netId);
-                gameController.gameOver = true;
+                GetGameController().RpcGameOver(MyNetworkID.netId);
+                GetGameController().gameOver = true;
             }
         }
     }
@@ -136,6 +134,11 @@ public class PlayerComponent : RadarDetectible
             GetComponent<PolygonCollider2D>().enabled = alive;
             GetComponent<SpriteRenderer>().enabled = alive;
         }
+    }
+
+    private GameController GetGameController()
+    {
+        return GameController.getInstance();
     }
 }
 

@@ -16,13 +16,20 @@ public class GameController : NetworkBehaviour {
 	public bool gameOver;
 	public GameObject gameOverPanel;
 
-	// Use this for initialization
-	void Start () {
-		if (instance == null) {
-			instance = this;
-		} else if (instance != this) {
-			Destroy (gameObject);
-		}
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    // Use this for initialization
+    void Start () {
 		gameOver = false;
 		gameOverPanel.SetActive(false);
 		planet.transform.position = Random.insideUnitCircle * 50;	
