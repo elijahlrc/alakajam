@@ -64,10 +64,16 @@ public class DelayMissile : RadarDetectible{
     {
         if (GetComponent<NetworkIdentity>().isServer)
         {
-            thrusterEffect.Stop();
-            Instantiate(explosionEffect, transform.position, transform.rotation);
-            Destroy(this.gameObject);
+            RpcExplode();
         }
+    }
+
+    [ClientRpc]
+    private void RpcExplode()
+    {
+        thrusterEffect.Stop();
+        Instantiate(explosionEffect, transform.position, transform.rotation);
+        Destroy(this.gameObject);
     }
 
     private bool OutOfBounds()
