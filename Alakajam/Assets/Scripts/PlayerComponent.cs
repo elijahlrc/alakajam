@@ -16,6 +16,11 @@ public class PlayerComponent : RadarDetectible
     Vector2 currentAcc;
     public GameObject radarSignaturePFX;
 
+    public int MaxRockets = 4;
+    public float TimeToReload = 1.5f;
+    private int currentRockets;
+    private float lastReload;
+
     public float radarPingCooldown = 5;
     private float lastRadarPingTime;
     
@@ -58,11 +63,20 @@ public class PlayerComponent : RadarDetectible
                 WasThrusting = false;
             }
 
-            bool shouldDropMissile = Input.GetKeyDown("mouse 0");
-            if (shouldDropMissile)
+            bool firePressed = Input.GetKeyDown("mouse 0");
+            if (firePressed && currentRockets > 0)
             {
+                currentRockets  -= 1;
                 Vector2 goalPosInWorldSpace = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 CmdDropMissile(goalPosInWorldSpace);
+            }
+            if (currentRockets < MaxRockets)
+            {
+                if (Time.time - lastReload > TimeToReload)
+                {
+                    lastReload = Time.time;
+                    currentRockets += 1;
+                }
             }
 
             if (lastRadarPingTime < Time.time - radarPingCooldown) {
