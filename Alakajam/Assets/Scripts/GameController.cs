@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 public class GameController : NetworkBehaviour {
 
 	public static GameController instance;
-	public PlayerComponent player1;
+
+    public PlayerComponent player1;
 	public PlayerComponent player2;
-	public GameObject planet;
-	public GameObject gameOverText;
+
+    public GameObject planet;
 	public bool gameOver;
 	public GameObject gameOverPanel;
 
@@ -22,9 +24,13 @@ public class GameController : NetworkBehaviour {
 			Destroy (gameObject);
 		}
 		gameOver = false;
-		gameOverText.GetComponent<Text> ().text = "";
 		gameOverPanel.SetActive(false);
 		planet.transform.position = Random.insideUnitCircle * 50;	
+
+        if (GetComponent<NetworkIdentity>().isServer)
+        {
+            gameOverPanel = Instantiate(gameOverPanel, Vector3.zero, Quaternion.identity);
+        }
 	}
 
 	public static GameController getInstance () {
@@ -33,34 +39,56 @@ public class GameController : NetworkBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (gameOver && Input.GetMouseButtonDown(0)) 
+		if (gameOver && Input.GetMouseButtonDown(0) && GetComponent<NetworkIdentity>().isServer) 
 		{
 			restartGame ();
 		}
 	}
 
+    //does game critical restart logic only on server
+    //i.e. place players, then calls RpcRestartGame
 	public void restartGame() {
-		player1.transform.position = Random.insideUnitCircle * 50;
-		player2.transform.position = Random.insideUnitCircle * 50;
-		float dist = Vector2.Distance(player1.transform.position, player2.transform.position);
-		while (dist <= 10) {
-			player2.transform.position = Random.insideUnitCircle * 50;
-			dist = Vector2.Distance(player1.transform.position, player2.transform.position);
-		}
-		gameOverPanel.SetActive(false);
-		planet.transform.position = Random.insideUnitCircle * 50;
+        //reload the current scene
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //randomize player and planet positions
+        player1.transform.position = Random.insideUnitCircle * 2;
+        player2.transform.position = Random.insideUnitCircle * 2;
+        float dist = Vector2.Distance(player1.transform.position, player2.transform.position);
+        while (dist <= 1)
+        {
+            player2.transform.position = Random.insideUnitCircle * 2;
+            dist = Vector2.Distance(player1.transform.position, player2.transform.position);
+        }
 
-	}
-    
+        planet.transform.position = Random.insideUnitCircle * 2;
+        gameOver = false;
+
+        player1.SetAlive(true);
+        player2.SetAlive(true);
+        RpcRestartGame();
+
+    }
+
+    [ClientRpc]
+    //Restarts game on client, sets players visible and game over screen invisible.
+    public void RpcRestartGame() {
+        player1.SetAlive(true);
+        player2.SetAlive(true);
+        gameOverPanel.SetActive(false);
+
+    }
+
     [ClientRpc]
     public void RpcGameOver(NetworkInstanceId nid)
 	{
-		if(this.isLocalPlayer && this.netId==nid){
+		if(true) {
+            //TODO: fix this check and put it back in
+            //this.isLocalPlayer && this.netId==nid) {
 			//winning player calls this with their net id thing
 //			player1.score += 1;
-			gameOverText.GetComponent<Text> ().text = "You won :)";
-		}else{
-			gameOverText.GetComponent<Text> ().text = "loser :>D";
+			//gameOverPanel.GetComponentInChildren<Text>().text = "You won :)";
+		} else {
+            //gameOverPanel.GetComponentInChildren<Text>().text = "loser :>D";
 		}
 		gameOver = true;
 		gameOverPanel.SetActive(true);
@@ -76,6 +104,7 @@ public class GameController : NetworkBehaviour {
         } else if (player2 == null)
         {
             player2 = player;
+            RpcPlayerJoined(player1.GetComponent<NetworkIdentity>().netId, player2.GetComponent<NetworkIdentity>().netId);
             return 2;
         } else
         {
@@ -88,5 +117,19 @@ public class GameController : NetworkBehaviour {
         return playerNumber + 7;
     }
 
-
+    [ClientRpc]
+    void RpcPlayerJoined(NetworkInstanceId player1NetId, NetworkInstanceId player2NetId)
+    {
+        GameObject[] Players = GameObject.FindGameObjectsWithTag("GamePlayer");
+        foreach(GameObject player in Players)
+        {
+            if (player.GetComponent<NetworkIdentity>().netId == player1NetId)
+            {
+                player1 = player.GetComponent<PlayerComponent>();
+            } else if (player.GetComponent<NetworkIdentity>().netId == player2NetId)
+            {
+                player2 = player.GetComponent<PlayerComponent>();
+            }
+        }
+    }
 }

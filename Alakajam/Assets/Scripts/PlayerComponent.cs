@@ -17,8 +17,8 @@ public class PlayerComponent : RadarDetectible
     Vector2 currentAcc;
     public GameObject radarSignaturePFX;
 
-    public float RadarPingCooldown = 5;
-    private float LastRadarpingTime;
+    public float radarPingCooldown = 5;
+    private float lastRadarPingTime;
     
     bool WasThrusting;
     [SyncVar(hook = "OnPlayerNumberSet")]
@@ -67,11 +67,11 @@ public class PlayerComponent : RadarDetectible
                 CmdDropMissile(goalPosInWorldSpace);
             }
 
-            if (LastRadarpingTime < Time.time - RadarPingCooldown) {
+            if (lastRadarPingTime < Time.time - radarPingCooldown) {
                 foreach(RadarDetectible Obj in RadarDetectible.DetectableObjects){
                     Obj.PingMe(this.transform.position);
                 }
-                LastRadarpingTime = Time.time;
+                lastRadarPingTime = Time.time;
             }
         }
 
@@ -114,11 +114,11 @@ public class PlayerComponent : RadarDetectible
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (MyNetworkID.isServer) {
-            GameObject g = collision.gameObject;
-            DelayMissile dM = g.GetComponent<DelayMissile>();
-            if (dM)
+            if (collision.gameObject.GetComponent<DelayMissile>())
             {
                 RpcDie();
+                gameController.RpcGameOver(MyNetworkID.netId);
+                gameController.gameOver = true;
             }
         }
     }
@@ -126,8 +126,17 @@ public class PlayerComponent : RadarDetectible
     [ClientRpc]
     private void RpcDie() {
         Instantiate(explosionEffect, transform.position, transform.rotation);
-        Destroy(this.gameObject);
-		gameController.RpcGameOver (MyNetworkID.netId);
-	}
+        SetAlive(false);
+    }
+
+    public void SetAlive(bool alive) {
+        GetComponent<PlayerComponent>().enabled = alive;
+        if (isLocalPlayer)
+        {
+            GetComponent<PolygonCollider2D>().enabled = alive;
+            GetComponent<SpriteRenderer>().enabled = alive;
+        }
+    }
 }
+
 
