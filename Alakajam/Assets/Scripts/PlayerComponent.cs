@@ -103,7 +103,7 @@ public class PlayerComponent : RadarDetectible
 
     public override void PingMe(Vector2 PingCenter){
         //maybe some kind of "is visible" check?
-        if (!isLocalPlayer) { //&& currentAcc != Vector2.zero) {
+        if (!isLocalPlayer && currentAcc != Vector2.zero) {
             GameObject RadarSignature = Instantiate(radarSignaturePFX, transform.position, transform.rotation);
             RadarSignature.GetComponent<RadarPingDelay>().delay = ((Vector2)transform.position - PingCenter).magnitude / 3f;
         }
