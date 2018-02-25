@@ -47,6 +47,7 @@ public class GameController : NetworkBehaviour {
         if (GetComponent<NetworkIdentity>().isServer)
         {
 			planet = Instantiate(planet, Vector3.zero, Quaternion.identity);
+
         }
 	}
 
