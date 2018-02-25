@@ -17,6 +17,11 @@ public class GameController : NetworkBehaviour {
 	public bool gameOver;
 	public GameObject gameOverPanel;
 
+    public float TIME_TO_CAPTURE = 30f;
+
+    private bool p1Capturing = false;
+    private bool p2Capturing = false;
+
     void Awake()
     {
         if (instance == null)
@@ -46,10 +51,39 @@ public class GameController : NetworkBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (gameOver && Input.GetMouseButtonDown(0) && GetComponent<NetworkIdentity>().isServer) 
-		{
-			restartGame ();
-		}
+        if (GetComponent<NetworkIdentity>().isServer) {
+            if (gameOver && Input.GetMouseButtonDown(0))
+            {
+                restartGame();
+            } else if (player1 != null && player2 != null)
+            {
+                if (PlayerOnPlanet(player1))
+                {
+                    if (p1Capturing)
+                    {
+                        player1.captureTime += Time.deltaTime;
+                        CheckCaptureProgress(player1);
+                    }
+                    p1Capturing = true;
+                } else
+                {
+                    p1Capturing = false;
+                }
+
+                if (PlayerOnPlanet(player2))
+                {
+                    if (p2Capturing)
+                    {
+                        player2.captureTime += Time.deltaTime;
+                        CheckCaptureProgress(player2);
+                    }
+                    p2Capturing = true;
+                } else
+                {
+                    p2Capturing = false;
+                }
+            }
+        }
 	}
 
     //does game critical restart logic only on server
@@ -139,4 +173,28 @@ public class GameController : NetworkBehaviour {
             }
         }
     }
+
+    private bool PlayerOnPlanet(PlayerComponent player)
+    {
+        Vector2 playerPos = player.transform.position;
+        Vector2 planetPos = planet.transform.position;
+        float dist = Vector2.Distance(playerPos, planetPos);
+        return dist < planet.GetComponent<CircleCollider2D>().radius * planet.transform.lossyScale.x;
+    }
+
+    private void CheckCaptureProgress(PlayerComponent player)
+    {
+        if (player.captureTime >= TIME_TO_CAPTURE)
+        {
+            if (player == player1)
+            {
+                RpcGameOver(player2.GetComponent<NetworkIdentity>().netId);
+            } else
+            {
+                RpcGameOver(player1.GetComponent<NetworkIdentity>().netId);
+            }
+        }
+
+    }
+
 }

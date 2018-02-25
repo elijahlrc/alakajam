@@ -29,6 +29,12 @@ public class PlayerComponent : RadarDetectible
     bool WasThrusting;
     [SyncVar(hook = "OnPlayerNumberSet")]
     int playerNumber;
+
+    public GameObject captureRingPrefab;
+    private GameObject captureRing;
+    [SyncVar(hook = "OnCaptureProgress")]
+    public float captureTime = 0f;
+
     // Use this for initialization
     void Start () {
         //base.Start();
@@ -45,6 +51,11 @@ public class PlayerComponent : RadarDetectible
         }
 
         MyAnim = GetComponent<Animator>();
+
+        if (isLocalPlayer)
+        {
+            captureRing = Instantiate(captureRingPrefab, GetGameController().planet.transform.position, GetGameController().planet.transform.rotation);
+        }
     }
 
     void OnPlayerNumberSet(int playerNumber)
@@ -163,6 +174,18 @@ public class PlayerComponent : RadarDetectible
     private GameController GetGameController()
     {
         return GameController.getInstance();
+    }
+
+    void OnCaptureProgress(float captureTime)
+    {
+        if (isLocalPlayer)
+        {
+            float frac = Mathf.Min(captureTime / GetGameController().TIME_TO_CAPTURE, 1f);
+            print("Capture progress " + frac);
+            Color oldColor = captureRing.GetComponent<SpriteRenderer>().color;
+            Color newColor = new Color(oldColor.r, oldColor.g, oldColor.b, frac);
+            captureRing.GetComponent<SpriteRenderer>().color = newColor;
+        }
     }
 }
 
