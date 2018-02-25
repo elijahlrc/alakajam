@@ -9,8 +9,8 @@ public class GameController : NetworkBehaviour {
 	public static GameController instance;
 	public PlayerComponent player1;
 	public PlayerComponent player2;
-
-	public Text gameOverText;
+	public GameObject planet;
+	public GameObject gameOverText;
 	public bool gameOver;
 	public GameObject gameOverPanel;
 
@@ -22,9 +22,9 @@ public class GameController : NetworkBehaviour {
 			Destroy (gameObject);
 		}
 		gameOver = false;
-		gameOverText.text = "";
+		gameOverText.GetComponent<Text> ().text = "";
 		gameOverPanel.SetActive(false);
-			
+		planet.transform.position = Random.insideUnitCircle * 50;	
 	}
 
 	public static GameController getInstance () {
@@ -48,6 +48,7 @@ public class GameController : NetworkBehaviour {
 			dist = Vector2.Distance(player1.transform.position, player2.transform.position);
 		}
 		gameOverPanel.SetActive(false);
+		planet.transform.position = Random.insideUnitCircle * 50;
 
 	}   
 
@@ -56,9 +57,9 @@ public class GameController : NetworkBehaviour {
 		if(this.isLocalPlayer && this.netId==nid){
 			//winning player calls this with their net id thing
 //			player1.score += 1;
-			gameOverText.text = "You won :)";
+			gameOverText.GetComponent<Text> ().text = "You won :)";
 		}else{
-			gameOverText.text = "loser :>D";
+			gameOverText.GetComponent<Text> ().text = "loser :>D";
 		}
 		gameOver = true;
 		gameOverPanel.SetActive(true);
