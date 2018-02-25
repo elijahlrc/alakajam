@@ -19,6 +19,7 @@ public class DelayMissile : RadarDetectible{
     private Rigidbody2D rb;
     public GameObject explosionEffect;
     private ParticleSystem thrusterEffect;
+    private SpriteRenderer spriteRenderer;
 
     [SyncVar(hook = "OnLayerSynced")]
     public int layer;
@@ -26,7 +27,12 @@ public class DelayMissile : RadarDetectible{
     void OnLayerSynced(int layer)
     {
         gameObject.layer = layer;
+        if (LaunchedByLocalPlayer())
+        {
+            spriteRenderer.enabled = true;
+        }
     }
+
 
     // Use this for initialization
     void Start () {
@@ -34,7 +40,16 @@ public class DelayMissile : RadarDetectible{
         accelTimeLeft = ACCEL_DURATION;
         rb = GetComponent<Rigidbody2D>();
         thrusterEffect = GetComponent<ParticleSystem>();
-	}
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    bool LaunchedByLocalPlayer()
+    {
+        GameController gameController = GameController.getInstance();
+        PlayerComponent p1 = gameController.player1;
+        int localPlayerNumber = p1.isLocalPlayer ? 1 : 2;
+        return layer == gameController.GetLayer(localPlayerNumber);
+    }
 	
 	// Update is called once per frame
 	void FixedUpdate () {
@@ -43,6 +58,10 @@ public class DelayMissile : RadarDetectible{
             timeTillLaunch -= Time.fixedDeltaTime;
         } else if (accelTimeLeft > 0)
         {
+            if (!spriteRenderer.enabled)
+            {
+                spriteRenderer.enabled = true;
+            }
             if (!thrusterEffect.isEmitting)
             {
                 thrusterEffect.Play();
